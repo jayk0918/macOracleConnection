@@ -31,7 +31,7 @@ public class ConnectTest_01 {
 			System.out.println("DB 연결 준비......");
 			conn = DriverManager.getConnection(url, userid, pwd);
 			
-			if(conn!=null) {
+			if(conn != null) {
 				System.out.println("DB 연결 성공...");
 			}
 			
