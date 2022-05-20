@@ -31,9 +31,9 @@ public class ConnectTest_01 {
 			if(conn!=null) {
 				System.out.println("DB 연결 성공...");
 			}
-            
-            // SQL문 준비 / 바인딩 / 실행
-	        // try_catch_finally문
+			
+			// SQL문 준비 / 바인딩 / 실행
+			// try_catch_finally문
 			
 		}catch(SQLException e) {
 			System.out.println("error" + e);
