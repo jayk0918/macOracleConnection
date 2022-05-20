@@ -57,16 +57,16 @@ public class ConnectTest_01 {
 					// 자원 정리
 	        		if (rs != null) {
 	        			rs.close();
-						}
-					if (pstmt != null) {
+					}
+	        		if (pstmt != null) {
 						pstmt.close();
-						}
-					if (conn != null) {
+					}
+	        		if (conn != null) {
 						conn.close();
-						}
+					}
 				}catch (SQLException e) {
 					System.out.println("error:" + e);
-					}
+				}
 			}
 			
 		}catch(SQLException e) {
