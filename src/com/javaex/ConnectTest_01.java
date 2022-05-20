@@ -13,6 +13,10 @@ public class ConnectTest_01 {
 		String userid = "admin";
 		String pwd = "Jayk09180918";
 		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
 		//oracle DB연결 드라이버 로딩
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
@@ -25,15 +29,37 @@ public class ConnectTest_01 {
 		//DBMS와 연결
 		try {
 			System.out.println("DB 연결 준비......");
-			Connection conn =DriverManager.getConnection(url, userid, pwd);
-			PreparedStatement pstmt = null;
-			ResultSet rs = null;
+			conn = DriverManager.getConnection(url, userid, pwd);
+			
 			if(conn!=null) {
 				System.out.println("DB 연결 성공...");
 			}
 			
-			// SQL문 준비 / 바인딩 / 실행
-			// try_catch_finally문
+			try {
+				// SQL문 준비
+				String query = "";
+				// 바인딩
+				pstmt = conn.prepareStatement(query);
+				// 실행
+				pstmt.executeUpdate();
+			}catch(SQLException e) {
+				System.out.println("error:" + e);
+			}finally {
+				try {
+					// 자원 정리
+	        		if (rs != null) {
+	        			rs.close();
+						}
+					if (pstmt != null) {
+						pstmt.close();
+						}
+					if (conn != null) {
+						conn.close();
+						}
+				}catch (SQLException e) {
+					System.out.println("error:" + e);
+					}
+			}
 			
 		}catch(SQLException e) {
 			System.out.println("error" + e);
