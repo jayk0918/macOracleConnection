@@ -25,12 +25,12 @@ public class ConnectTest_01 {
 		//DBMS와 연결
 		try {
 			System.out.println("DB 연결 준비......");
-	        Connection conn =DriverManager.getConnection(url, userid, pwd);
-	        PreparedStatement pstmt = null;
-            ResultSet rs = null;
-            if(conn!=null) {
-	        	System.out.println("DB 연결 성공...");
-	        }
+			Connection conn =DriverManager.getConnection(url, userid, pwd);
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			if(conn!=null) {
+				System.out.println("DB 연결 성공...");
+			}
             
             // SQL문 준비 / 바인딩 / 실행
 	        // try_catch_finally문
