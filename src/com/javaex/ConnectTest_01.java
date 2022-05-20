@@ -38,10 +38,18 @@ public class ConnectTest_01 {
 			try {
 				// SQL문 준비
 				String query = "";
+				System.out.println(query);
 				// 바인딩
 				pstmt = conn.prepareStatement(query);
+				// pstmt.setString(0, query);
+				// pstmt.setInt(0, 0);
+				
 				// 실행
-				pstmt.executeUpdate();
+				int count = pstmt.executeUpdate();
+				
+				// 결과처리보고
+				System.out.println(count + "건이 등록되었습니다.");
+				
 			}catch(SQLException e) {
 				System.out.println("error:" + e);
 			}finally {
