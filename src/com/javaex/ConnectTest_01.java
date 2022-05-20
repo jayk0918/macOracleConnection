@@ -2,6 +2,9 @@ package com.javaex;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /* 오라클 접속 테스트 */
 public class ConnectTest_01 {
@@ -16,19 +19,25 @@ public class ConnectTest_01 {
     	    //oracle DB연결 드라이버 로딩
     	    Class.forName("oracle.jdbc.OracleDriver");//
     	    System.out.println("JDBC 드라이버 로딩 성공");
-       }catch(Exception e) {
-    	    e.printStackTrace();
-       }
+       }catch(ClassNotFoundException e) {
+   	    	System.out.println("error : 드라이버 로딩 실패 - " + e);
+		}
        
        //DBMS와 연결
        try {
-    	       System.out.println("DB 연결 준비......");
-    	       Connection con =DriverManager.getConnection(url, userid, pwd);
-    	       if(con!=null) {
-    	    	   System.out.println("DB 연결 성공...");
-    	       }
-       }catch(Exception e) {
-    	   e.printStackTrace();
+	        System.out.println("DB 연결 준비......");
+	        Connection conn =DriverManager.getConnection(url, userid, pwd);
+	        PreparedStatement pstmt = null;
+            ResultSet rs = null;
+	        if(conn!=null) {
+	        	System.out.println("DB 연결 성공...");
+	        }
+	        
+	        // SQL문 준비 / 바인딩 / 실행
+	        // try_catch_finally문
+	        
+       }catch(SQLException e) {
+    	   System.out.println("error" + e);
        }
-	}
-}
+	}// main end
+}// class end
